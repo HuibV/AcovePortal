@@ -21,22 +21,32 @@
             font-weight: normal;
             color: blue;
         }
+
+        .Button {
+            float: right;
+        }
     </style>
-    <br /><br />
-    <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="float: right;padding-top:25px;">
+    <br />
+    <br />
+    <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="float: right; padding-top: 25px;">
         Uitleg tekst
     </asp:Panel>
 
-    <asp:TabContainer ID="tcMain" runat="server" Width="512">
+    <asp:TabContainer ID="tcMain" runat="server" Width="512" Height="512">
         <asp:TabPanel ID="tpIntroduction" runat="server" HeaderText="Introductie">
             <ContentTemplate>
                 Hier komt de introductietekst
+                <br />
+                <asp:Button ID="btnStart" runat="server" Text="Start" OnClick="btnStart_Click" CssClass="Button" />
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpCategory" runat="server" HeaderText="Stap 1 - Categorie selectie">
             <ContentTemplate>
                 <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3" Font-Bold="false" Font-Size="Small"></asp:CheckBoxList><br />
-                <asp:Button ID="btnNext" runat="server" Text="Verder" OnClick="btnNext_Click" CausesValidation="false" Style="float: right;" />
+                <div class="Button">
+                    <asp:Button ID="btnPrevious" runat="server" Text="Terug" OnClick="btnPrevious_Click" />
+                    <asp:Button ID="btnNext" runat="server" Text="Verder" OnClick="btnNext_Click" CausesValidation="false" />
+                </div>
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpPremisse" runat="server" HeaderText="Stap 2">
@@ -56,11 +66,17 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                <br />
+                <div class="Button">
+                    <asp:Button ID="btnPrevious1" runat="server" OnClick="btnPrevious_Click" Text="Terug" />
+                    <asp:Button ID="btnNext1" runat="server" OnClick="btnNext_Click" Text="Verder" />
+                </div>
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpConclusion" runat="server" HeaderText="Stap 3">
             <ContentTemplate>
                 Suggesties
+                <asp:GridView ID="gvSuggestions" runat="server"></asp:GridView>
             </ContentTemplate>
         </asp:TabPanel>
     </asp:TabContainer>

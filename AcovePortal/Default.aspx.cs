@@ -115,6 +115,15 @@ namespace AcovePortal
 
         }
 
+        public void SearchSuggestions(string ruleID)
+        {
+            string query = "SELECT * FROM suggestion ";
+            query += "WHERE id in ('" + ruleID + "')";
+            DataTable dt = SqlHandler.GetData(query);
+            gvSuggestions.DataSource = dt;
+            gvSuggestions.DataBind();
+        }
+
         /// <summary>
         /// Set the hyperlink for each rule on RowDataBound
         /// </summary>
@@ -132,19 +141,57 @@ namespace AcovePortal
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            string id_list = "";
-            foreach (ListItem it in cbCategoryList.Items)
+            if (((Button)sender).ID == btnNext.ID)
             {
-                if (it.Selected)
+                string id_list = "";
+                foreach (ListItem it in cbCategoryList.Items)
                 {
-                    if (id_list == "")
-                        id_list = it.Value;
-                    else
-                        id_list += "','" + it.Value;
+                    if (it.Selected)
+                    {
+                        if (id_list == "")
+                            id_list = it.Value;
+                        else
+                            id_list += "','" + it.Value;
+                    }
                 }
+                SearchCategories(null, id_list);
             }
-            SearchCategories(null, id_list);
+            else if(((Button)sender).ID == btnNext1.ID)
+            {
+                string ruleID = "";
+                foreach(GridViewRow row in gvResults.Rows)
+                {
+                    CheckBox cb = (CheckBox)row.FindControl("cbCondition");
+                    if(cb.Checked)
+                    {
+                        if (ruleID.Length == 0)
+                            ruleID = ((HiddenField)row.FindControl("hfRuleID")).Value;
+                        else
+                            ruleID += "','" + ((HiddenField)row.FindControl("hfRuleID")).Value;
+                    }
+                }
+                SearchSuggestions(ruleID);
+            }
+            NextTab();
+        }
+
+        protected void NextTab()
+        {
             tcMain.ActiveTabIndex = tcMain.ActiveTabIndex + 1;
+        }
+        protected void PreviousTab()
+        {
+            tcMain.ActiveTabIndex = tcMain.ActiveTabIndex - 1;
+        }
+
+        protected void btnStart_Click(object sender, EventArgs e)
+        {
+            NextTab();
+        }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            PreviousTab();
         }
     }
 }

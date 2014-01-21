@@ -40,6 +40,15 @@ namespace AcovePortal {
         protected global::AjaxControlToolkit.TabPanel tpIntroduction;
         
         /// <summary>
+        /// btnStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStart;
+        
+        /// <summary>
         /// tpCategory control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace AcovePortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList cbCategoryList;
+        
+        /// <summary>
+        /// btnPrevious control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
         
         /// <summary>
         /// btnNext control.
@@ -85,6 +103,24 @@ namespace AcovePortal {
         protected global::System.Web.UI.WebControls.GridView gvResults;
         
         /// <summary>
+        /// btnPrevious1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrevious1;
+        
+        /// <summary>
+        /// btnNext1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNext1;
+        
+        /// <summary>
         /// tpConclusion control.
         /// </summary>
         /// <remarks>
@@ -92,6 +128,15 @@ namespace AcovePortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel tpConclusion;
+        
+        /// <summary>
+        /// gvSuggestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvSuggestions;
         
         /// <summary>
         /// pnlMap control.

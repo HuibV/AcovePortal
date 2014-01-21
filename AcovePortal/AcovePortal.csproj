@@ -160,6 +160,8 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Admin\ManageConditions.aspx" />
+    <Content Include="Admin\ManageSummary.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -275,6 +277,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ManageConditions.aspx.cs">
+      <DependentUpon>ManageConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageConditions.aspx.designer.cs">
+      <DependentUpon>ManageConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageSummary.aspx.cs">
+      <DependentUpon>ManageSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageSummary.aspx.designer.cs">
+      <DependentUpon>ManageSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
