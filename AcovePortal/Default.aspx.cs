@@ -75,7 +75,7 @@ namespace AcovePortal
             foreach (DataRow dr in dt.Rows)
             {
                 ListItem it = new ListItem();
-                it.Attributes.Add("class", "listItem");
+                //it.Attributes.Add("class", "listItem");
                 it.Text = dr["label"].ToString();
                 it.Value = dr["id"].ToString();
                 cbCategoryList.Items.Add(it);
@@ -120,8 +120,24 @@ namespace AcovePortal
             string query = "SELECT * FROM suggestion ";
             query += "WHERE id in ('" + ruleID + "')";
             DataTable dt = SqlHandler.GetData(query);
-            gvSuggestions.DataSource = dt;
-            gvSuggestions.DataBind();
+            int suggestionCount = 1;
+            Panel suggestionPanel = new Panel();
+            foreach(DataRow dr in dt.Rows)
+            {                
+                LiteralControl header = new LiteralControl("<b>Suggestion " + suggestionCount + " </b><br />");
+                LiteralControl body = new LiteralControl(dr["suggestionDescription"].ToString());
+
+                suggestionPanel.Controls.Add(header);
+                suggestionPanel.Controls.Add(body);
+
+                if(dr["suggestionReason"] != DBNull.Value)
+                {
+                    LiteralControl reason = new LiteralControl("<br /><b>Uitleg</b><br />" + dr["suggestionReason"].ToString() + "<br /><br />");
+                    suggestionPanel.Controls.Add(reason);
+                }
+                suggestionCount++;
+            }
+            tpConclusion.Controls.Add(suggestionPanel);
         }
 
         /// <summary>

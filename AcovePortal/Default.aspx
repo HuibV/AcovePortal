@@ -17,9 +17,8 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style type="text/css">
         .listItem {
-            font-size: small;
-            font-weight: normal;
-            color: blue;
+            display: inline;
+            margin-left: 3px;
         }
 
         .Button {
@@ -32,7 +31,7 @@
         Uitleg tekst
     </asp:Panel>
 
-    <asp:TabContainer ID="tcMain" runat="server" Width="512" Height="512">
+    <asp:TabContainer ID="tcMain" runat="server" Width="512" Height="512" ScrollBars="Vertical">
         <asp:TabPanel ID="tpIntroduction" runat="server" HeaderText="Introductie">
             <ContentTemplate>
                 Hier komt de introductietekst
@@ -42,7 +41,7 @@
         </asp:TabPanel>
         <asp:TabPanel ID="tpCategory" runat="server" HeaderText="Stap 1 - Categorie selectie">
             <ContentTemplate>
-                <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3" Font-Bold="false" Font-Size="Small"></asp:CheckBoxList><br />
+                <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3"></asp:CheckBoxList><br />
                 <div class="Button">
                     <asp:Button ID="btnPrevious" runat="server" Text="Terug" OnClick="btnPrevious_Click" />
                     <asp:Button ID="btnNext" runat="server" Text="Verder" OnClick="btnNext_Click" CausesValidation="false" />
@@ -53,15 +52,14 @@
             <ContentTemplate>
                 <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvResults_RowDataBound">
                     <Columns>
-                        <asp:TemplateField>
+                        <asp:TemplateField ItemStyle-Width="200" ControlStyle-Width="175">
                             <ItemTemplate>
-                                <asp:CheckBox ID="cbCondition" runat="server" />
+                                <asp:CheckBox ID="cbCondition" TextAlign="Right" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>' runat="server" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Beschrijving">
                             <ItemTemplate>
                                 <asp:HiddenField ID="hfRuleID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem,"id").ToString() %>' />
-                                <asp:Label ID="lblDefinition" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -74,9 +72,7 @@
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpConclusion" runat="server" HeaderText="Stap 3">
-            <ContentTemplate>
-                Suggesties
-                <asp:GridView ID="gvSuggestions" runat="server"></asp:GridView>
+            <ContentTemplate>     
             </ContentTemplate>
         </asp:TabPanel>
     </asp:TabContainer>

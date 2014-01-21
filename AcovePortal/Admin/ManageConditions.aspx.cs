@@ -181,7 +181,10 @@ namespace AcovePortal.Admin
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("p_id", MySqlDbType.VarChar, 45).Value = id;
                     cmd.Parameters.Add("p_suggestionDescription", MySqlDbType.LongText).Value = description;
-                    cmd.Parameters.Add("p_suggestionReason", MySqlDbType.LongText).Value = reason;
+                    if (reason.Trim().Length > 0)
+                        cmd.Parameters.Add("p_suggestionReason", MySqlDbType.LongText).Value = reason;
+                    else
+                        cmd.Parameters.Add("p_suggestionReason", MySqlDbType.LongText).Value = DBNull.Value;
                     cmd.ExecuteNonQuery();
                 }               
             }
