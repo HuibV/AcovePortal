@@ -28,19 +28,19 @@
     <br />
     <br />
     <script src=" https://googledrive.com/host/0Bw5Ph-OwuTz6VkJhZmNlX1lJV0k/"> </script>
-<input type="button" id="btnkickplus" value="A +" />
-
-<input type="button" id="btnkickminus" value="A -" />
-    <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="float: right; padding-top: 25px;">
-        <div class="kickblogger">
-            Uitleg tekst
-        </div>
-    </asp:Panel>
-
+    <div style="float: right;">
+        <input type="button" id="btnkickplus" value="A +" />
+        <input type="button" id="btnkickminus" value="A -" />
+        <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="padding-top: 25px;">
+            <div class="kickblogger" style="line-height: 150%;">
+                Uitleg tekst
+            </div>
+        </asp:Panel>
+    </div>
     <asp:TabContainer ID="tcMain" runat="server" Width="512" Height="512" ScrollBars="Vertical">
         <asp:TabPanel ID="tpIntroduction" runat="server" HeaderText="Introductie">
             <ContentTemplate>
-                <div class="kickblogger">
+                <div class="kickblogger" style="line-height: 150%;">
                     Hier komt de introductietekst
                 </div>
                 <br />
@@ -49,7 +49,7 @@
         </asp:TabPanel>
         <asp:TabPanel ID="tpCategory" runat="server" HeaderText="Stap 1 - Categorie selectie">
             <ContentTemplate>
-                <div class="kickblogger">
+                <div class="kickblogger" style="line-height: 150%;">
                     <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3"></asp:CheckBoxList><br />
                 </div>
                 <div class="Button">
@@ -61,16 +61,12 @@
         <asp:TabPanel ID="tpPremisse" runat="server" HeaderText="Stap 2">
             <ContentTemplate>
                 <div class="kickblogger">
-                    <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvResults_RowDataBound">
+                    <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvResults_RowDataBound" Width="500">
                         <Columns>
-                            <asp:TemplateField ItemStyle-Width="200" ControlStyle-Width="175">
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="cbCondition" TextAlign="Right" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>' runat="server" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Beschrijving">
                                 <ItemTemplate>
                                     <asp:HiddenField ID="hfRuleID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem,"id").ToString() %>' />
+                                    <asp:CheckBox ID="cbCondition" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>' runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -85,8 +81,6 @@
         </asp:TabPanel>
         <asp:TabPanel ID="tpConclusion" runat="server" HeaderText="Stap 3">
             <ContentTemplate>
-                <div id="divConclusion" class="kickblogger">
-                </div>
             </ContentTemplate>
         </asp:TabPanel>
     </asp:TabContainer>

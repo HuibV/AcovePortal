@@ -122,6 +122,8 @@ namespace AcovePortal
             DataTable dt = SqlHandler.GetData(query);
             int suggestionCount = 1;
             Panel suggestionPanel = new Panel();
+            suggestionPanel.CssClass = "kickblogger";
+            suggestionPanel.Style.Add("line-height", "150%");
             foreach(DataRow dr in dt.Rows)
             {                
                 LiteralControl header = new LiteralControl("<b>Suggestion " + suggestionCount + " </b><br />");
@@ -137,6 +139,7 @@ namespace AcovePortal
                 }
                 suggestionCount++;
             }
+            
             tpConclusion.Controls.Add(suggestionPanel);
         }
 
