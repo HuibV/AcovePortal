@@ -27,21 +27,31 @@
     </style>
     <br />
     <br />
+    <script src=" https://googledrive.com/host/0Bw5Ph-OwuTz6VkJhZmNlX1lJV0k/"> </script>
+<input type="button" id="btnkickplus" value="A +" />
+
+<input type="button" id="btnkickminus" value="A -" />
     <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="float: right; padding-top: 25px;">
-        Uitleg tekst
+        <div class="kickblogger">
+            Uitleg tekst
+        </div>
     </asp:Panel>
 
     <asp:TabContainer ID="tcMain" runat="server" Width="512" Height="512" ScrollBars="Vertical">
         <asp:TabPanel ID="tpIntroduction" runat="server" HeaderText="Introductie">
             <ContentTemplate>
-                Hier komt de introductietekst
+                <div class="kickblogger">
+                    Hier komt de introductietekst
+                </div>
                 <br />
                 <asp:Button ID="btnStart" runat="server" Text="Start" OnClick="btnStart_Click" CssClass="Button" />
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpCategory" runat="server" HeaderText="Stap 1 - Categorie selectie">
             <ContentTemplate>
-                <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3"></asp:CheckBoxList><br />
+                <div class="kickblogger">
+                    <asp:CheckBoxList ID="cbCategoryList" runat="server" RepeatColumns="3"></asp:CheckBoxList><br />
+                </div>
                 <div class="Button">
                     <asp:Button ID="btnPrevious" runat="server" Text="Terug" OnClick="btnPrevious_Click" />
                     <asp:Button ID="btnNext" runat="server" Text="Verder" OnClick="btnNext_Click" CausesValidation="false" />
@@ -50,20 +60,22 @@
         </asp:TabPanel>
         <asp:TabPanel ID="tpPremisse" runat="server" HeaderText="Stap 2">
             <ContentTemplate>
-                <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvResults_RowDataBound">
-                    <Columns>
-                        <asp:TemplateField ItemStyle-Width="200" ControlStyle-Width="175">
-                            <ItemTemplate>
-                                <asp:CheckBox ID="cbCondition" TextAlign="Right" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>' runat="server" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Beschrijving">
-                            <ItemTemplate>
-                                <asp:HiddenField ID="hfRuleID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem,"id").ToString() %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                <div class="kickblogger">
+                    <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvResults_RowDataBound">
+                        <Columns>
+                            <asp:TemplateField ItemStyle-Width="200" ControlStyle-Width="175">
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="cbCondition" TextAlign="Right" Text='<%# DataBinder.Eval(Container.DataItem,"originalText").ToString() %>' runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Beschrijving">
+                                <ItemTemplate>
+                                    <asp:HiddenField ID="hfRuleID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem,"id").ToString() %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
                 <br />
                 <div class="Button">
                     <asp:Button ID="btnPrevious1" runat="server" OnClick="btnPrevious_Click" Text="Terug" />
@@ -72,7 +84,9 @@
             </ContentTemplate>
         </asp:TabPanel>
         <asp:TabPanel ID="tpConclusion" runat="server" HeaderText="Stap 3">
-            <ContentTemplate>     
+            <ContentTemplate>
+                <div id="divConclusion" class="kickblogger">
+                </div>
             </ContentTemplate>
         </asp:TabPanel>
     </asp:TabContainer>
