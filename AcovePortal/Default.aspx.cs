@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -211,6 +214,32 @@ namespace AcovePortal
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
             PreviousTab();
+        }
+
+        protected void lbTest_Click(object sender, EventArgs e)
+        {
+            Uri testUri = new Uri("http://acove-mediawiki.herokuapp.com/api.php?format=jsonfm&action=query&titles=test&prop=revisions&rvprop=content");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(testUri);
+            string explanationText;
+            //request.UserAgent = "";
+            //request.ContentType = "";
+            using(HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                string ResponseText;
+                using(StreamReader reader = new StreamReader(response.GetResponseStream()) )
+                {
+                    ResponseText = reader.ReadToEnd();
+                }               
+                int start = ResponseText.IndexOf("==");
+                int end = ResponseText.IndexOf("]].") + 3;
+                int length = end - start;
+                explanationText = ResponseText.Substring(start, length);                   
+            }
+            Match match = Regex.Match(explanationText, @"\=\= [A-Za-z]{0,} \=\=");
+            if(match.Success)
+            {
+                lblUitleg.Text = "<br />" + match;
+            }
         }
     }
 }

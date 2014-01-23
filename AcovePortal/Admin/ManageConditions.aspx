@@ -27,6 +27,9 @@
     <asp:Label ID="lblDescription" runat="server" Text="Condition description" CssClass="Label"></asp:Label>
     <asp:TextBox ID="tbDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
     <br />
+    <asp:Label ID="lblException" runat="server" Text="Condition exception" CssClass="Label"></asp:Label>
+    <asp:TextBox ID="tbException" runat="server"></asp:TextBox>
+    <br />
     <asp:Button ID="btnSaveCondition" runat="server" OnClick="btnSaveCondition_Click" Text="Save condition" />
     <br />
     <h2>Suggestions</h2>

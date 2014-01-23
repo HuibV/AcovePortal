@@ -76,6 +76,24 @@ namespace AcovePortal.Admin {
         protected global::System.Web.UI.WebControls.TextBox tbDescription;
         
         /// <summary>
+        /// lblException control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblException;
+        
+        /// <summary>
+        /// tbException control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbException;
+        
+        /// <summary>
         /// btnSaveCondition control.
         /// </summary>
         /// <remarks>

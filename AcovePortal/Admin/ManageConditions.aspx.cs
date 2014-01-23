@@ -145,6 +145,7 @@ namespace AcovePortal.Admin
                     cmd.Parameters.Add("p_originalText", MySqlDbType.LongText).Value = tbOriginalCondition.Text;
                     cmd.Parameters.Add("p_conditionDescription", MySqlDbType.LongText).Value = tbDescription.Text;
                     cmd.Parameters.Add("p_categoryID", MySqlDbType.Int32).Value = ddl_Category.SelectedValue;
+                    cmd.Parameters.Add("p_conditionException", MySqlDbType.VarChar, 255).Value = tbException.Text;
                     cmd.ExecuteNonQuery();
                 }
             }

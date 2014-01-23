@@ -22,6 +22,15 @@ namespace AcovePortal {
         protected global::System.Web.UI.WebControls.Panel pnlExplanation;
         
         /// <summary>
+        /// lblUitleg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUitleg;
+        
+        /// <summary>
         /// tcMain control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace AcovePortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel tpIntroduction;
+        
+        /// <summary>
+        /// lblTestLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTestLink;
         
         /// <summary>
         /// btnStart control.
@@ -137,5 +155,14 @@ namespace AcovePortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlMap;
+        
+        /// <summary>
+        /// lbTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbTest;
     }
 }

@@ -34,6 +34,7 @@
         <asp:Panel ID="pnlExplanation" runat="server" Width="256px" Height="512px" BorderStyle="Solid" BorderWidth="1px" BorderColor="LightGray" Style="padding-top: 25px;">
             <div class="kickblogger" style="line-height: 150%;">
                 Uitleg tekst
+                <asp:Label ID="lblUitleg" runat="server"></asp:Label>
             </div>
         </asp:Panel>
     </div>
@@ -42,6 +43,7 @@
             <ContentTemplate>
                 <div class="kickblogger" style="line-height: 150%;">
                     Hier komt de introductietekst
+                    <asp:Label ID="lblTestLink" runat="server"></asp:Label>
                 </div>
                 <br />
                 <asp:Button ID="btnStart" runat="server" Text="Start" OnClick="btnStart_Click" CssClass="Button" />
@@ -88,5 +90,6 @@
     <asp:Panel ID="pnlMap" runat="server" Style="padding-top: 30px;">
         Gezocht op:
         <br />
+        <asp:LinkButton ID="lbTest" runat="server" OnClick="lbTest_Click" Text="TestLink"></asp:LinkButton>
     </asp:Panel>
 </asp:Content>
